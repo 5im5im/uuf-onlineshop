@@ -14,11 +14,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
- *
- * @author Alexander Salvanos
- *
  * The persistent class for the CUSTOMER database table.
  *
+ * @author Alexander Salvanos
  */
 @Entity
 @Table(schema = "ONLINESHOP", name = "CUSTOMER")
@@ -161,6 +159,7 @@ public class Customer implements Serializable {
         return true;
     }
 
+    @Override
     public String toString() {
         return id + "-" + email + "-" + password;
     }

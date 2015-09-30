@@ -18,11 +18,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
- * @author Alexander Salvanos
- *
  * The persistent class for the ITEM database table.
  *
+ * @author Alexander Salvanos
  */
 @Entity
 @Table(schema = "ONLINESHOP", name = "ITEM")
