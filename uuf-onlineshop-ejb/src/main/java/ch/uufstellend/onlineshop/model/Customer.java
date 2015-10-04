@@ -3,6 +3,7 @@ package ch.uufstellend.onlineshop.model;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import javax.ejb.Stateful;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +21,7 @@ import lombok.Data;
  * @author Alexander Salvanos
  */
 @Entity
+@Stateful
 @Data
 @Table(schema = "ONLINESHOP", name = "CUSTOMER")
 @NamedQuery(

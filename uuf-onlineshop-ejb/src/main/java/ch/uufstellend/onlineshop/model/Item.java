@@ -2,6 +2,7 @@ package ch.uufstellend.onlineshop.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.ejb.Stateful;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -24,6 +25,7 @@ import lombok.Data;
  * @author Alexander Salvanos
  */
 @Entity
+@Stateful
 @Data
 @Table(schema = "ONLINESHOP", name = "ITEM")
 @NamedQuery(
