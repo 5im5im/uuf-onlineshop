@@ -11,6 +11,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
 /**
@@ -24,7 +29,7 @@ public class RegisterController implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @PersistenceUnit
+    @PersistenceUnit//(unitName = "uuf-onlineshop-pu")
     private EntityManagerFactory emf;
 
     @Resource
@@ -48,7 +53,7 @@ public class RegisterController implements Serializable {
             ut.commit();
             FacesMessage m = new FacesMessage("Succesfully registered!", "Your email was saved under id " + customer.getId());
             FacesContext.getCurrentInstance().addMessage("registerForm", m);
-        } catch (Exception e) {
+        } catch (NotSupportedException | SystemException | RollbackException | HeuristicMixedException | HeuristicRollbackException | SecurityException | IllegalStateException e) {
             e.printStackTrace();
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_WARN, e.getMessage(), e.getCause().getMessage());
             FacesContext.getCurrentInstance().addMessage("registerForm", m);

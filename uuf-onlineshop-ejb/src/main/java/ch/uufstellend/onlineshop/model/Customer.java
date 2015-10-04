@@ -12,6 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import lombok.Data;
 
 /**
  * The persistent class for the CUSTOMER database table.
@@ -19,6 +20,7 @@ import javax.persistence.Table;
  * @author Alexander Salvanos
  */
 @Entity
+@Data
 @Table(schema = "ONLINESHOP", name = "CUSTOMER")
 @NamedQuery(
         name = "Customer.findAll",
@@ -54,38 +56,37 @@ public class Customer implements Serializable {
     public Customer() {
     }
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Set<Item> getOffers() {
-        return this.offers;
-    }
-
-    public void setOffers(Set<Item> offers) {
-        this.offers = offers;
-    }
-
+//    public Long getId() {
+//        return this.id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getEmail() {
+//        return this.email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
+//    public String getPassword() {
+//        return this.password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public Set<Item> getOffers() {
+//        return this.offers;
+//    }
+//
+//    public void setOffers(Set<Item> offers) {
+//        this.offers = offers;
+//    }
     public Item addOffer(Item offer) {
         Set<Item> offers = getOffers();
         if (offers == null) {
@@ -104,14 +105,13 @@ public class Customer implements Serializable {
         return offer;
     }
 
-    public Set<Item> getPurchases() {
-        return this.purchases;
-    }
-
-    public void setPurchases(Set<Item> purchases) {
-        this.purchases = purchases;
-    }
-
+//    public Set<Item> getPurchases() {
+//        return this.purchases;
+//    }
+//
+//    public void setPurchases(Set<Item> purchases) {
+//        this.purchases = purchases;
+//    }
     public Item addPurchase(Item purchase) {
         Set<Item> purchases = getPurchases();
         if (purchases == null) {
@@ -129,36 +129,35 @@ public class Customer implements Serializable {
         return purchase;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (!(obj instanceof Customer)) {
-            return false;
-        }
-        Customer other = (Customer) obj;
-        if (id == null) {
-            if (other.id != null) {
-                return false;
-            }
-        } else if (!id.equals(other.id)) {
-            return false;
-        }
-        return true;
-    }
-
+//    @Override
+//    public int hashCode() {
+//        final int prime = 31;
+//        int result = 1;
+//        result = prime * result + ((id == null) ? 0 : id.hashCode());
+//        return result;
+//    }
+//
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (!(obj instanceof Customer)) {
+//            return false;
+//        }
+//        Customer other = (Customer) obj;
+//        if (id == null) {
+//            if (other.id != null) {
+//                return false;
+//            }
+//        } else if (!id.equals(other.id)) {
+//            return false;
+//        }
+//        return true;
+//    }
     @Override
     public String toString() {
         return id + "-" + email + "-" + password;
